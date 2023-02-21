@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LoginRegister</string>
+
+    <string name="login">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="passwordConfim">Confirmar contraseña</string>
+
+    <string name="error">* Credenciales incorrectas</string>
+
+</resources>
