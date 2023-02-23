@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4B4B4B"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,32 +14,74 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659">
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
             android:onClick="login"
-            android:enabled="false"
-            android:text="@string/login" />
+            android:text="@string/login"
+            android:textColor="#474747" />
 
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
             android:onClick="register"
-            android:enabled="false"
-            android:text="@string/register" />
+            android:text="@string/register"
+            android:textColor="#474747"
+
+            />
 
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#E10F0F"
-            android:enabled="false"
+            android:backgroundTint="#919191"
             android:onClick="close"
             android:text="Cerrar sesión" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/loginBarButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="clientMenu"
+            android:text="@string/loginBar"
+            android:textColor="#474747" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="227dp"
+        android:layout_height="177dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164"
+        app:srcCompat="@drawable/logosinletras" />
 </androidx.constraintlayout.widget.ConstraintLayout>

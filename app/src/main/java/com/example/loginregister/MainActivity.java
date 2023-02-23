@@ -57,4 +57,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(getIntent());
     }
 
+    public void clientMenu(View view){
+        Intent switchClientMenu = new Intent(this, ClientMenu.class);
+        startActivity(switchClientMenu);
+    }
+
 }

@@ -2,6 +2,7 @@
     <string name="app_name">LoginRegister</string>
 
     <string name="login">Iniciar sesión</string>
+    <string name="loginBar">Iniciar sesión como entidad</string>
     <string name="register">Registrarse</string>
 
     <string name="email">Correo electrónico</string>
@@ -9,5 +10,7 @@
     <string name="passwordConfim">Confirmar contraseña</string>
 
     <string name="error">* Credenciales incorrectas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
