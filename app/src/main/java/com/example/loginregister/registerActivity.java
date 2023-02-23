@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,8 @@ public class registerActivity extends AppCompatActivity {
     private EditText passEditText;
     private EditText passConEditText;
 
+    private TextView error;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,8 @@ public class registerActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailRegisterEditText);
         passEditText = findViewById(R.id.passRegisterEditText);
         passConEditText = findViewById(R.id.passConRegisterEditText);
+
+        error = findViewById(R.id.errorRegister);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -54,6 +59,8 @@ public class registerActivity extends AppCompatActivity {
                             //updateUI(user);
                             startActivity(new Intent(registerActivity.this, MainActivity.class));
                         }else{
+                            error.setText("* Autenticación fallida");
+                            error.setVisibility(View.VISIBLE);
                             Toast.makeText(registerActivity.this, "Aunthentication failed", Toast.LENGTH_SHORT);
                         }
                     }
@@ -75,12 +82,16 @@ public class registerActivity extends AppCompatActivity {
 
                 if(pass.length()<6){
                     Toast.makeText(this, "La contraseña debe contener al menos 6 carácteres", Toast.LENGTH_SHORT).show();
+                    error.setText("* La contraseña debe contener al menos 6 carácteres");
+                    error.setVisibility(View.VISIBLE);
                 }else{
                     createAccount(email,pass);
                 }
 
             }else {
                 Toast.makeText(this,"La contraseña no coincide",Toast.LENGTH_SHORT).show();
+                error.setText("* Las contraseñas no coinciden");
+                error.setVisibility(View.VISIBLE);
             }
 
         }else {

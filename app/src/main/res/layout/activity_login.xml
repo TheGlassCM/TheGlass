@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark"
     tools:context=".loginActivity">
 
     <LinearLayout
@@ -22,9 +23,12 @@
             android:id="@+id/emailLoginEditText"
             android:layout_width="match_parent"
             android:layout_height="59dp"
+            android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="#FFFFFF" />
 
         <Space
             android:layout_width="match_parent"
@@ -34,9 +38,12 @@
             android:id="@+id/passwordLoginEditText"
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="#FFFFFF" />
 
         <Space
             android:layout_width="match_parent"

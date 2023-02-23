@@ -10,6 +10,8 @@
     <string name="passwordConfim">Confirmar contraseña</string>
 
     <string name="error">* Credenciales incorrectas</string>
+    <string name="errorRegisterPass">* Las contraseñas no coinciden</string>
+    <string name="errorRegisterEmail">* La dirección de correo ya está en uso</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

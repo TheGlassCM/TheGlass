@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4B4B4B"
+    android:background="@color/dark"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659">
+        app:layout_constraintVertical_bias="0.8">
 
         <Button
             android:id="@+id/loginButton"
@@ -26,7 +26,9 @@
             android:backgroundTint="#FFFFFF"
             android:onClick="login"
             android:text="@string/login"
-            android:textColor="#474747" />
+            android:textColor="#474747"
+            android:background="@drawable/roundedbutton"
+            android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/registerButton"
@@ -36,7 +38,8 @@
             android:onClick="register"
             android:text="@string/register"
             android:textColor="#474747"
-
+            android:background="@drawable/roundedbutton"
+            android:layout_marginBottom="10dp"
             />
 
         <Button
@@ -45,7 +48,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#919191"
             android:onClick="close"
-            android:text="Cerrar sesión" />
+            android:text="Cerrar sesión"
+            android:background="@drawable/roundedbutton"/>
 
         <Space
             android:layout_width="match_parent"
@@ -69,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
+            android:background="@drawable/roundedbutton"
             android:onClick="clientMenu"
             android:text="@string/loginBar"
             android:textColor="#474747" />
@@ -76,12 +81,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="227dp"
-        android:layout_height="177dp"
+        android:layout_width="440dp"
+        android:layout_height="401dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164"
-        app:srcCompat="@drawable/logosinletras" />
+        app:layout_constraintVertical_bias="0.109"
+        app:srcCompat="@drawable/logosinfondo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
