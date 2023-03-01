@@ -53,7 +53,7 @@
             android:background="@drawable/roundedbutton"
             android:backgroundTint="#919191"
             android:onClick="close"
-            android:text="Cerrar sesión" />
+            android:text="Menú cliente" />
 
         <Space
             android:layout_width="match_parent"

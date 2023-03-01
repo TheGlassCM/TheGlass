@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(switchRegisterPage);
     }
 
-    public void close(View v){
+    public void clientMenu(View v){
         //FirebaseAuth.getInstance().signOut();
         //startActivity(getIntent());
         Intent switchBarMenu = new Intent(this, BarMenu.class);
         startActivity(switchBarMenu);
     }
 
-    public void clientMenu(View view){
+    public void close(View view){
         Intent switchClientMenu = new Intent(this, ClientMenu.class);
         startActivity(switchClientMenu);
     }

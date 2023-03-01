@@ -6,11 +6,27 @@
     tools:context=".fragmentScanner">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Scanner"
-        android:textColor="@color/white"/>
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp"/>
+
+        <Button
+            android:id="@+id/buttonScanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scanner" />
+
+    </LinearLayout>
 
 </FrameLayout>
