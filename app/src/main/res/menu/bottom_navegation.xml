@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/firstFragment"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Primero"/>
+        android:id="@+id/rankFragment"
+        android:icon="@android:drawable/star_big_off"
+        android:title="@string/rank" />
 
     <item
-        android:id="@+id/secondFragment"
-        android:icon="@android:drawable/ic_delete"
-        android:title="Segundo"/>
+        android:id="@+id/offersFragment"
+        android:icon="@android:drawable/ic_popup_reminder"
+        android:title="@string/offers" />
 
     <item
-        android:id="@+id/thirdFragment"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
-        android:title="Tercero"/>
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_map"
+        android:title="@string/map" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"/>
 
 </menu>

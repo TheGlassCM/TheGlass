@@ -9,47 +9,51 @@
 
     <LinearLayout
         android:layout_width="310dp"
-        android:layout_height="411dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="400dp"
+            android:layout_height="270dp"
+            app:srcCompat="@drawable/logosinfondo" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="login"
             android:text="@string/login"
-            android:textColor="#474747"
-            android:background="@drawable/roundedbutton"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="#474747" />
 
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="register"
             android:text="@string/register"
-            android:textColor="#474747"
-            android:background="@drawable/roundedbutton"
-            android:layout_marginBottom="10dp"
-            />
+            android:textColor="#474747" />
 
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
             android:backgroundTint="#919191"
             android:onClick="close"
-            android:text="Cerrar sesión"
-            android:background="@drawable/roundedbutton"/>
+            android:text="Cerrar sesión" />
 
         <Space
             android:layout_width="match_parent"
@@ -72,22 +76,11 @@
             android:id="@+id/loginBarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
             android:background="@drawable/roundedbutton"
+            android:backgroundTint="#FFFFFF"
             android:onClick="clientMenu"
             android:text="@string/loginBar"
             android:textColor="#474747" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="440dp"
-        android:layout_height="401dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109"
-        app:srcCompat="@drawable/logosinfondo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

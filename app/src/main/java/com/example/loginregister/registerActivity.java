@@ -59,9 +59,9 @@ public class registerActivity extends AppCompatActivity {
                             //updateUI(user);
                             startActivity(new Intent(registerActivity.this, MainActivity.class));
                         }else{
-                            error.setText("* Autenticación fallida");
+                            error.setText(R.string.failedAutentication);
                             error.setVisibility(View.VISIBLE);
-                            Toast.makeText(registerActivity.this, "Aunthentication failed", Toast.LENGTH_SHORT);
+                            Toast.makeText(registerActivity.this, R.string.failedAutentication, Toast.LENGTH_SHORT);
                         }
                     }
                 });
@@ -76,26 +76,35 @@ public class registerActivity extends AppCompatActivity {
 
         if(!email.isEmpty()&&!pass.isEmpty()&&!passRe.isEmpty()){
 
-
-
-            if(pass.equals(passRe)){
-
-                if(pass.length()<6){
-                    Toast.makeText(this, "La contraseña debe contener al menos 6 carácteres", Toast.LENGTH_SHORT).show();
-                    error.setText("* La contraseña debe contener al menos 6 carácteres");
-                    error.setVisibility(View.VISIBLE);
-                }else{
-                    createAccount(email,pass);
-                }
-
-            }else {
-                Toast.makeText(this,"La contraseña no coincide",Toast.LENGTH_SHORT).show();
-                error.setText("* Las contraseñas no coinciden");
+            if(!email.contains("@")){
+                emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+                error.setText(R.string.errorEmail);
                 error.setVisibility(View.VISIBLE);
-            }
+            }else {
 
+
+                if (pass.equals(passRe)) {
+
+                    if (pass.length() < 6) {
+                        Toast.makeText(this, R.string.errorPassLenght, Toast.LENGTH_SHORT).show();
+                        error.setText(R.string.errorPassLenght);
+                        error.setVisibility(View.VISIBLE);
+                    } else {
+                        createAccount(email, pass);
+                    }
+
+                } else {
+                    Toast.makeText(this, R.string.errorRegisterPass, Toast.LENGTH_SHORT).show();
+                    error.setText(R.string.errorRegisterPass);
+                    error.setVisibility(View.VISIBLE);
+                }
+            }
         }else {
-            Toast.makeText(this,"No puedes dejar campos vacíos",Toast.LENGTH_SHORT).show();
+            emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+            passEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+            passConEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+            error.setText(R.string.fillInuts);
+            error.setVisibility(View.VISIBLE);
         }
 
     }

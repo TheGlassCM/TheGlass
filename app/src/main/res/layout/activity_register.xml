@@ -88,9 +88,8 @@
             android:id="@+id/errorRegister"
             android:layout_width="match_parent"
             android:layout_height="37dp"
-            android:background="#FFA2A2"
+            android:background="@drawable/error_box"
             android:gravity="center"
-            android:text="@string/errorRegisterPass"
             android:textColor="#510303"
             android:visibility="invisible"
             />

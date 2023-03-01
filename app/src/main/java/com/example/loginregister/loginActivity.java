@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
+
 public class loginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -61,6 +63,7 @@ public class loginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Usuario:", "signInWithEmail:failure", task.getException());
+                            error.setText(R.string.errorLogin);
                             error.setVisibility(View.VISIBLE);
 
                             //updateUI(null);
@@ -77,7 +80,10 @@ public class loginActivity extends AppCompatActivity {
         if(!email.isEmpty()&&!password.isEmpty()){
             signInWithEmailAndPassword(email,password);
         }else{
-            Toast.makeText(this,"No puedes dejar ningún campo vacío", Toast.LENGTH_LONG).show();
+            emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+            passwordEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+            error.setText(R.string.fillInuts);
+            error.setVisibility(View.VISIBLE);
         }
 
 

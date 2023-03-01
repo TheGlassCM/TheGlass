@@ -13,10 +13,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ClientMenu extends AppCompatActivity {
 
-    FirstFragment firstFragment = new FirstFragment();
-    SecondFragment secondFragment = new SecondFragment();
-    ThirdFragment thirdFragment = new ThirdFragment();
-
+    fragmentMap fragmentMap = new fragmentMap();
+    fragmentOffers fragmentOffers = new fragmentOffers();
+    fragmentRank fragmentRank = new fragmentRank();
+    fragmentSettings fragmentSettings = new fragmentSettings();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,9 @@ public class ClientMenu extends AppCompatActivity {
         setContentView(R.layout.activity_client_menu);
 
         BottomNavigationView navigation = findViewById(R.id.bottom_navegation);
+        loadFragment(fragmentMap);
         navigation.setOnNavigationItemSelectedListener(m0nNavigationItemSelectedLister);
+
 
 
     }
@@ -34,14 +36,17 @@ public class ClientMenu extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             switch (item.getItemId()){
-                case R.id.firstFragment:
-                    loadFragment(firstFragment);
+                case R.id.rankFragment:
+                    loadFragment(fragmentRank);
                     return true;
-                case R.id.secondFragment:
-                    loadFragment(secondFragment);
+                case R.id.offersFragment:
+                    loadFragment(fragmentOffers);
                     return true;
-                case R.id.thirdFragment:
-                    loadFragment(thirdFragment);
+                case R.id.mapFragment:
+                    loadFragment(fragmentMap);
+                    return true;
+                case R.id.settingsFragment:
+                    loadFragment(fragmentSettings);
                     return true;
             }
 
