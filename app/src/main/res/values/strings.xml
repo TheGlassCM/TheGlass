@@ -9,6 +9,7 @@
     <string name="login">Iniciar sesión</string>
     <string name="loginBar">Iniciar sesión como entidad</string>
     <string name="register">Registrarse</string>
+    <string name="logout">Cerrar sesión</string>
 
     <!-- INPUTS LOGIN/REGISTER -->
 
@@ -34,8 +35,18 @@
     <string name="map">Mapa</string>
     <string name="rank">Ranking</string>
     <string name="settings">Ajustes</string>
+    <string name="scanner">Lector QR</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bar_menu">BarMenu</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

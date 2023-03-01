@@ -6,10 +6,28 @@
     tools:context=".fragmentSettings">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Fourth" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Settings"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/logoutButtonSettings"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#919191"
+            android:text="@string/logout" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -53,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void close(View v){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(getIntent());
+        //FirebaseAuth.getInstance().signOut();
+        //startActivity(getIntent());
+        Intent switchBarMenu = new Intent(this, BarMenu.class);
+        startActivity(switchBarMenu);
     }
 
     public void clientMenu(View view){

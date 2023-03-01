@@ -27,11 +27,20 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    
+
     <style name="BottomNavegation">
         <item name="android:background">@color/black</item>
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@color/white</item>
     </style>
-    
+
+    <style name="Theme.LoginRegister.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.LoginRegister.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.LoginRegister.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
