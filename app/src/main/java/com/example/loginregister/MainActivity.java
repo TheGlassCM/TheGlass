@@ -53,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clientMenu(View v){
-        //FirebaseAuth.getInstance().signOut();
-        //startActivity(getIntent());
-        Intent switchBarMenu = new Intent(this, BarMenu.class);
+        Intent switchBarMenu = new Intent(this, registerAdvanced.class);
         startActivity(switchBarMenu);
     }
 
