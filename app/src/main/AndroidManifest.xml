@@ -18,24 +18,31 @@
         tools:targetApi="31">
         <activity
             android:name=".registerAdvanced"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".BarMenu"
             android:exported="false"
             android:label="@string/title_activity_bar_menu"
-            android:theme="@style/Theme.LoginRegister.NoActionBar" />
+            android:theme="@style/Theme.LoginRegister.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ClientMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".registerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".loginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

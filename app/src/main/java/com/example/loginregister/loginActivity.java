@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class loginActivity extends AppCompatActivity {
     private EditText passwordEditText;
 
     private TextView error;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class loginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailLoginEditText);
         passwordEditText = findViewById(R.id.passwordLoginEditText);
         error = findViewById(R.id.error);
+        progressBar = findViewById(R.id.progressBarLogin);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -43,9 +47,6 @@ public class loginActivity extends AppCompatActivity {
 
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
     }
 
     public void signInWithEmailAndPassword(String email, String password){
@@ -78,7 +79,9 @@ public class loginActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
         if(!email.isEmpty()&&!password.isEmpty()){
+            progressBar.setVisibility(View.VISIBLE);
             signInWithEmailAndPassword(email,password);
+            progressBar.setVisibility(View.INVISIBLE);
         }else{
             emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
             passwordEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
