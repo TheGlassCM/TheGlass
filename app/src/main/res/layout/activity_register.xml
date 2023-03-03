@@ -94,6 +94,13 @@
             android:visibility="invisible"
             />
 
+        <ProgressBar
+            android:id="@+id/progressBarRegister"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

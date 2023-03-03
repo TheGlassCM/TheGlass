@@ -61,7 +61,7 @@
             android:layout_height="10dp" />
 
         <Button
-            android:id="@+id/loginLoginButton"
+            android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="10dp"/>
 
         <TextView
-            android:id="@+id/errorRegister"
+            android:id="@+id/errorRegisterAdvanced"
             android:layout_width="match_parent"
             android:layout_height="37dp"
             android:background="@drawable/error_box"
@@ -80,6 +80,13 @@
             android:textColor="#510303"
             android:visibility="invisible"
             />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

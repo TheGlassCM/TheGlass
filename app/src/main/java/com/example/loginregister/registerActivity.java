@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,8 @@ public class registerActivity extends AppCompatActivity {
     private EditText passEditText;
     private EditText passConEditText;
 
+    private ProgressBar progressBar;
+
     private TextView error;
 
     @Override
@@ -35,6 +39,7 @@ public class registerActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.emailRegisterEditText);
         passEditText = findViewById(R.id.passRegisterEditText);
         passConEditText = findViewById(R.id.passConRegisterEditText);
+        progressBar = findViewById(R.id.progressBarRegister);
 
         error = findViewById(R.id.errorRegister);
 
@@ -55,17 +60,37 @@ public class registerActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                            startActivity(new Intent(registerActivity.this, MainActivity.class));
+                            signInWithEmailAndPassword(email,password);
                         }else{
                             error.setText(R.string.failedAutentication);
                             error.setVisibility(View.VISIBLE);
-                            Toast.makeText(registerActivity.this, R.string.failedAutentication, Toast.LENGTH_SHORT);
                         }
                     }
                 });
 
+    }
+
+    public void signInWithEmailAndPassword(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("Usuario:", "signInWithEmail:success");
+                            startActivity(new Intent(registerActivity.this, registerAdvanced.class));
+                            finish();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("Usuario:", "signInWithEmail:failure", task.getException());
+                            error.setText(R.string.errorLogin);
+                            error.setVisibility(View.VISIBLE);
+
+                            //updateUI(null);
+                        }
+                    }
+                });
     }
 
     public void buttonPress(View view){
@@ -90,7 +115,9 @@ public class registerActivity extends AppCompatActivity {
                         error.setText(R.string.errorPassLenght);
                         error.setVisibility(View.VISIBLE);
                     } else {
+                        progressBar.setVisibility(View.VISIBLE);
                         createAccount(email, pass);
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
 
                 } else {
