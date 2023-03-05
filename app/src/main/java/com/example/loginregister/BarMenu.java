@@ -14,7 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class BarMenu extends AppCompatActivity {
 
     fragmentScanner fragmentScanner = new fragmentScanner();
-    fragmentSettings fragmentSettings = new fragmentSettings();
+    fragmentSettingsBar fragmentSettings = new fragmentSettingsBar();
 
     NavigationBarView nav;
     @Override

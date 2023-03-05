@@ -58,16 +58,13 @@ public class loginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Usuario:", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(loginActivity.this, MainActivity.class));
+                            startActivity(new Intent(loginActivity.this, ClientMenu.class));
                             finish();
-                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Usuario:", "signInWithEmail:failure", task.getException());
                             error.setText(R.string.errorLogin);
                             error.setVisibility(View.VISIBLE);
-
-                            //updateUI(null);
                         }
                     }
                 });
