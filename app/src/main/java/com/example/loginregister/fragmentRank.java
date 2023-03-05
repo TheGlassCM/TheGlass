@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,8 @@ public class fragmentRank extends Fragment {
     private FirebaseUser user;
     private DatabaseReference BASE_DE_DATOS;
 
+    private ListAdapter listAdapter;
+
     private List<User> listaUsers;
 
     @Override
@@ -58,20 +61,17 @@ public class fragmentRank extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        Context fragmentContext = getActivity();
         View root = inflater.inflate(R.layout.fragment_rank, container, false);
 
         Query prediccionesPorClaveHija =
-                FirebaseDatabase.getInstance().getReference()
-                        .child("Users")
-                        .orderByChild("rank");
+                FirebaseDatabase.getInstance().getReference("Users").orderByChild("rank")
+                        .limitToFirst(15);
 
-        //prediccionesPorClaveHija.addValueEventListener(valueEventListener);
+        prediccionesPorClaveHija.addValueEventListener(valueEventListener);
 
-        listaUsers.add(new User("user1","file:///storage/emulated/0/Android/data/com.example.loginregister/files/DCIM/IMG_20230305_175036506.jpg",1,2));
-        ListAdapter listAdapter = new ListAdapter(listaUsers, container.getContext());
+        //listaUsers.add(new User("user1","file:///storage/emulated/0/Android/data/com.example.loginregister/files/DCIM/IMG_20230305_175036506.jpg",1,2));
+        listAdapter = new ListAdapter(listaUsers, container.getContext());
         RecyclerView recyclerView = root.findViewById(R.id.listUsersRanks);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
@@ -89,10 +89,14 @@ public class fragmentRank extends Fragment {
             listaUsers.clear();
             if(dataSnapshot.exists()){
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    User user = snapshot.getValue(User.class);
+                    Integer rank = Integer.parseInt(""+snapshot.child("rank").getValue());
+                    String username = ""+snapshot.child("username").getValue();
+                    Integer points = Integer.parseInt(""+snapshot.child("points").getValue());
+                    String photoString = ""+snapshot.child("photo").getValue();
+                    User user = new User(username,photoString,points,rank);
                     listaUsers.add(user);
                 }
-
+            listAdapter.notifyDataSetChanged();
             }
 
         }
