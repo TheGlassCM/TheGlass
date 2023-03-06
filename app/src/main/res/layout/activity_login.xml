@@ -61,12 +61,12 @@
             android:id="@+id/loginLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="buttonPress"
             android:text="@string/login"
-            android:textColor="#474747"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="#474747" />
 
         <LinearLayout
             android:id="@+id/errorLogin"
@@ -92,6 +92,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/loginLoginButton2"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="login"
+            android:text="@string/returnT"
+            android:textColor="#474747" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

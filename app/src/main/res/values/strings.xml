@@ -13,6 +13,7 @@
     <string name="userName">Nombre de usuario</string>
     <string name="selectPhoto">Seleciona una foto</string>
     <string name="nextT">Siguiente</string>
+    <string name="returnT">Volver</string>
 
     <!-- INPUTS LOGIN/REGISTER -->
 

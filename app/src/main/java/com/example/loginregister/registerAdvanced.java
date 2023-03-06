@@ -113,4 +113,10 @@ public class registerAdvanced extends AppCompatActivity {
         image.setImageURI(uri);
 
     }
+
+
+    public void login(View view){
+        Intent switchLoginPage = new Intent(this, MainActivity.class);
+        startActivity(switchLoginPage);
+    }
 }

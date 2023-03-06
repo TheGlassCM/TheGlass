@@ -101,6 +101,17 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
 
+        <Button
+            android:id="@+id/returnButton2"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="login"
+            android:text="@string/returnT"
+            android:textColor="#474747" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

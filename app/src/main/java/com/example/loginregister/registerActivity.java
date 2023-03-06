@@ -135,4 +135,10 @@ public class registerActivity extends AppCompatActivity {
         }
 
     }
+
+
+    public void login(View view){
+        Intent switchLoginPage = new Intent(this, MainActivity.class);
+        startActivity(switchLoginPage);
+    }
 }
