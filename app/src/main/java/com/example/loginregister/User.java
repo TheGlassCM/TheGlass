@@ -6,9 +6,10 @@ public class User {
 
     private String username;
     private String photo;
-    private Integer points,rank;
+    private Integer rank;
+    private Float points;
 
-    public User(String username, String photo, Integer points, Integer rank) {
+    public User(String username, String photo, Float points, Integer rank) {
         this.username = username;
         this.photo = photo;
         this.points = points;
@@ -23,7 +24,7 @@ public class User {
         return photo;
     }
 
-    public Integer getPoints() {
+    public Float getPoints() {
         return points;
     }
 
@@ -39,7 +40,7 @@ public class User {
         this.photo = photo;
     }
 
-    public void setPoints(Integer points) {
+    public void setPoints(Float points) {
         this.points = points;
     }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark"
-    tools:context=".registerAdvanced">
+    tools:context=".loginBarActivity">
 
     <LinearLayout
         android:layout_width="336dp"
@@ -20,84 +20,85 @@
         app:layout_constraintVertical_bias="0.2">
 
         <ImageView
-            android:id="@+id/photo"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"
-            tools:srcCompat="@tools:sample/avatars" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:id="@+id/imageView2"
+            android:layout_width="440dp"
+            android:layout_height="269dp"
+            app:srcCompat="@drawable/logosinfondo" />
 
-        <Button
-            android:id="@+id/selecPhoto"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#B1B0B0"
-            android:onClick="buttonPress"
-            android:text="@string/selectPhoto"
-            android:textColor="#474747"
-            android:layout_marginBottom="10dp"/>
+            android:id="@+id/enterpriseText"
+            android:text="VERSION EMPRESARIAL"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            ></TextView>
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
         <EditText
-            android:id="@+id/userName"
+            android:id="@+id/emailLoginBarEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:ems="10"
-            android:hint="Nombre de usuario"
-            android:inputType="textPersonName"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
             android:padding="25dp"
             android:textColor="@color/white"
-            android:textColorHint="#FFFFFF"
-            />
+            android:textColorHint="#FFFFFF" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
+        <EditText
+            android:id="@+id/passwordLoginBarEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="25dp"
+            android:textColor="@color/white"
+            android:textColorHint="#FFFFFF" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="14dp" />
+
         <Button
-            android:id="@+id/next"
+            android:id="@+id/loginLoginBarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="buttonPress"
-            android:text="@string/createAccount"
+            android:text="@string/login"
             android:textColor="#474747"
             android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:id="@+id/errorRegisterAdvanced"
+        <LinearLayout
+            android:id="@+id/errorLoginBar"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:background="@drawable/error_box"
-            android:gravity="center"
-            android:textColor="#510303"
-            android:visibility="invisible"
-            />
+            android:layout_height="62dp"
+            android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible" />
+            <TextView
+                android:id="@+id/errorBar"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:background="@drawable/error_box"
+                android:gravity="center"
+                android:textColor="#510303"
+                android:visibility="invisible"
+                />
 
-        <Button
-            android:id="@+id/returnButton"
-            android:layout_width="166dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="login"
-            android:text="@string/returnT"
-            android:textColor="#474747" />
+        </LinearLayout>
 
     </LinearLayout>
 

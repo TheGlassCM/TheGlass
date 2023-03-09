@@ -91,7 +91,7 @@ public class fragmentRank extends Fragment {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Integer rank = Integer.parseInt(""+snapshot.child("rank").getValue());
                     String username = ""+snapshot.child("username").getValue();
-                    Integer points = Integer.parseInt(""+snapshot.child("points").getValue());
+                    Float points = Float.parseFloat(""+snapshot.child("points").getValue());
                     String photoString = ""+snapshot.child("photo").getValue();
                     User user = new User(username,photoString,points,rank);
                     listaUsers.add(user);

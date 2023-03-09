@@ -13,8 +13,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
-    Button logout;
     Button login;
     Button register;
 
@@ -22,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        logout = findViewById(R.id.logoutButton);
         login = findViewById(R.id.loginButton);
         register = findViewById(R.id.registerButton);
         mAuth = FirebaseAuth.getInstance();
@@ -33,13 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
-        if(currentUser!=null){
-            logout.setEnabled(true);
-        }else{
-            login.setEnabled(true);
-            register.setEnabled(true);
-        }
+
     }
 
     public void login(View v) {
@@ -52,14 +43,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(switchRegisterPage);
     }
 
-    public void clientMenu(View v){
-        Intent switchBarMenu = new Intent(this, registerAdvanced.class);
+    public void barLogin(View v){
+        Intent switchBarMenu = new Intent(this, loginBarActivity.class);
         startActivity(switchBarMenu);
-    }
-
-    public void close(View view){
-        Intent switchClientMenu = new Intent(this, ClientMenu.class);
-        startActivity(switchClientMenu);
     }
 
 }

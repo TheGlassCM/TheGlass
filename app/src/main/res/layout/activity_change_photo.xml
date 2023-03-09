@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark"
-    tools:context=".registerAdvanced">
+    tools:context=".changePhoto">
 
     <LinearLayout
         android:layout_width="336dp"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.2">
 
         <ImageView
-            android:id="@+id/photo"
+            android:id="@+id/photoChangeActivity"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:scaleType="fitXY"
@@ -30,7 +30,7 @@
             android:layout_height="10dp" />
 
         <Button
-            android:id="@+id/selecPhoto"
+            android:id="@+id/selecPhotoChange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
@@ -39,65 +39,21 @@
             android:text="@string/selectPhoto"
             android:textColor="#474747"
             android:layout_marginBottom="10dp"/>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <EditText
-            android:id="@+id/userName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:hint="Nombre de usuario"
-            android:inputType="textPersonName"
-            android:padding="25dp"
-            android:textColor="@color/white"
-            android:textColorHint="#FFFFFF"
-            />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
         <Button
-            android:id="@+id/next"
+            android:id="@+id/savePhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="buttonPress"
-            android:text="@string/createAccount"
+            android:text="@string/save"
             android:textColor="#474747"
             android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:id="@+id/errorRegisterAdvanced"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:background="@drawable/error_box"
-            android:gravity="center"
-            android:textColor="#510303"
-            android:visibility="invisible"
-            />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/returnButton"
-            android:layout_width="166dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="login"
-            android:text="@string/returnT"
-            android:textColor="#474747" />
 
     </LinearLayout>
 

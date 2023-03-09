@@ -79,7 +79,7 @@ public class registerAdvanced extends AppCompatActivity {
                     text.setVisibility(View.VISIBLE);
                 }else{
                     progressBar.setVisibility(View.VISIBLE);
-                    User user = new User(username.getText().toString(),uri.toString(),0,0);
+                    User user = new User(username.getText().toString(),uri.toString(),0F,0);
                     myRef = database.getReference();
                     myRef.child("Users").child(userAuth.getUid()).setValue(user);
                     progressBar.setVisibility(View.INVISIBLE);
