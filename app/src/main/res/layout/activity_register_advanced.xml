@@ -67,7 +67,7 @@
             android:background="@drawable/roundedbutton"
             android:backgroundTint="#FFFFFF"
             android:onClick="buttonPress"
-            android:text="@string/next"
+            android:text="@string/createAccount"
             android:textColor="#474747"
             android:layout_marginBottom="10dp"/>
 

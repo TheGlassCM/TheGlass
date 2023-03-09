@@ -32,7 +32,16 @@
     <string name="errorEmail">Debes instroducir un correo válido</string>
     <string name="errorRegisterAdvanced">Primero debes seleccionar una foto</string>
     <string name="errorUsername">Debes introduccir un nombre de usuario</string>
+    <string name="loginBarClient">Esa cuenta no es una cuenta empresarial</string>
+    <string name="usernameEmpty">El nombre de usuario no puede estar vacío</string>
+    <string name="errorTotal">La total de la cuenta no puede estar vacío</string>
 
+
+    <!-- TIPOS ACIERTOS -->
+
+    <string name="usernameChangesucces">Cambio de nombre de usuario exitoso</string>
+    <string name="photChangesucces">Cambio de foto de perfil exitoso</string>
+    <string name="addedPonints">Puntos añadidos</string>
 
     <!-- BOTONES DE NAVEGACIÓN -->
 
@@ -41,6 +50,18 @@
     <string name="rank">Ranking</string>
     <string name="settings">Ajustes</string>
     <string name="scanner">Lector QR</string>
+
+    <!-- BOTONES DE CONFIGURACIÓN -->
+
+    <string name="changeUsername">Cambiar nombre de usuario</string>
+    <string name="changePhoto">Cambiar foto de perfil</string>
+    <string name="textChangeUsername">Introduce un nombre de usuario</string>
+    <string name="save">Guardar</string>
+    <string name="createAccount">Crear cuenta</string>
+
+    <!-- OTROS -->
+
+    <string name="total">Ingrese el total de la cuenta</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

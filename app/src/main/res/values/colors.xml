@@ -10,4 +10,6 @@
     <color name="dark">#252525</color>
     <color name="redErrorBackground">#FFA2A2</color>
     <color name="redErrorText">#510303</color>
+    <color name="greeSuccessBox">#C8FFD6</color>
+    <color name="greeSuccessText">#24402B</color>
 </resources>

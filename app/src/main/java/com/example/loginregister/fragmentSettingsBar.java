@@ -28,7 +28,7 @@ public class fragmentSettingsBar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_settings, container, false);
+        View root = inflater.inflate(R.layout.fragment_settings_bar, container, false);
         logout = root.findViewById(R.id.logoutButtonSettingsBar);
 
         logout.setOnClickListener(new View.OnClickListener() {
