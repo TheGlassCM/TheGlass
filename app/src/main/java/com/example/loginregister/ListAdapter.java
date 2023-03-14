@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -57,7 +59,10 @@ import java.util.List;
 
         void bindData(final User item){
 
-            iconImage.setImageURI(Uri.parse(item.getPhoto().toString()));
+            //iconImage.setImageURI(Uri.parse(item.getPhoto().toString()));
+            Picasso.with(iconImage.getContext())
+                            .load(item.getPhoto().toString())
+                                    .into(iconImage);
             username.setText(item.getUsername());
             rank.setText(item.getRank().toString());
         }

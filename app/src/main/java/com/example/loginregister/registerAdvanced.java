@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +31,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -33,6 +41,7 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
 
 
 public class registerAdvanced extends AppCompatActivity {
@@ -46,10 +55,19 @@ public class registerAdvanced extends AppCompatActivity {
     TextView text;
 
     Uri uri = null;
+
+    String uri_firebase;
     FirebaseDatabase database;
 
     FirebaseUser userAuth;
     DatabaseReference myRef;
+
+    StorageReference storageReference;
+
+    String storagePath = "photoUser/*";
+
+    private static final int COD_SEL_STORAGE = 200;
+    private static final int COD_SEL_IMAGE = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +76,7 @@ public class registerAdvanced extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Users");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         selectPhoto = findViewById(R.id.selecPhoto);
         image = findViewById(R.id.photo);
@@ -79,7 +98,7 @@ public class registerAdvanced extends AppCompatActivity {
                     text.setVisibility(View.VISIBLE);
                 }else{
                     progressBar.setVisibility(View.VISIBLE);
-                    User user = new User(username.getText().toString(),uri.toString(),0F,0);
+                    User user = new User(username.getText().toString(),uri_firebase.toString(),0F,0);
                     myRef = database.getReference();
                     myRef.child("Users").child(userAuth.getUid()).setValue(user);
                     progressBar.setVisibility(View.INVISIBLE);
@@ -109,13 +128,78 @@ public class registerAdvanced extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        uri = data.getData();
-        image.setImageURI(uri);
+        if (Activity.RESULT_OK == resultCode){
+            uri = data.getData();
+            image.setImageURI(uri);
+
+            String route = storagePath + "/" + userAuth.getUid();
+            StorageReference reference = storageReference.child(route);
+            reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                    while (!uriTask.isSuccessful()){
+                        if(uriTask.isSuccessful()){
+                            uriTask.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    uri_firebase = uri.toString();
+
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }
+
+
+        ;
+
 
     }
 
 
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        FirebaseUser userDel = FirebaseAuth.getInstance().getCurrentUser();
+        userDel.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.d("DEL USER","Usuario eliminado");
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FirebaseUser userDel = FirebaseAuth.getInstance().getCurrentUser();
+        userDel.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.d("DEL USER","Usuario eliminado");
+                }
+            }
+        });
+    }
+
     public void login(View view){
+
+        FirebaseUser userDel = FirebaseAuth.getInstance().getCurrentUser();
+        userDel.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.d("DEL USER","Usuario eliminado");
+                }
+            }
+        });
         Intent switchLoginPage = new Intent(this, MainActivity.class);
         startActivity(switchLoginPage);
     }

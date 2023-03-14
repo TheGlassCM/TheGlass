@@ -40,6 +40,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+import com.squareup.picasso.Picasso;
 
 import java.sql.Time;
 import java.time.LocalDateTime;
@@ -154,7 +155,9 @@ public class fragmentScanner extends Fragment {
                     points = Float.parseFloat(snapshot.child("points").getValue()+"");
                     rank = Integer.parseInt(snapshot.child("rank").getValue()+"");
                     addPoints(result.getContents());
-                    img.setImageURI(Uri.parse(photo));
+                    Picasso.with(img.getContext())
+                            .load(photo)
+                            .into(img);
                     img3.setVisibility(View.VISIBLE);
                     img3.setImageResource(R.drawable.check);
                     error.setBackgroundResource(R.drawable.succes_box);
@@ -185,12 +188,13 @@ public class fragmentScanner extends Fragment {
                 .child("transactionX").setValue(transaction);
 
         Float addPoints = barPoints*Float.parseFloat(totalCuenta.getText().toString())/5 + points;
+        Integer addRank = Math.round(barPoints*Float.parseFloat(totalCuenta.getText().toString())/5 + rank);
 
         Map<String,Object> userMap = new HashMap<>();
         userMap.put("username",username);
         userMap.put("photo",photo);
         userMap.put("points",addPoints);
-        userMap.put("rank",rank);
+        userMap.put("rank",addRank);
 
         FirebaseDatabase.getInstance().getReference("Users").child(userId).updateChildren(userMap);
 

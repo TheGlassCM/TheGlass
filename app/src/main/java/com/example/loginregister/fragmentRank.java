@@ -34,6 +34,7 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class fragmentRank extends Fragment {
@@ -66,11 +67,10 @@ public class fragmentRank extends Fragment {
 
         Query prediccionesPorClaveHija =
                 FirebaseDatabase.getInstance().getReference("Users").orderByChild("rank")
-                        .limitToFirst(15);
+                        .limitToLast(15);
 
         prediccionesPorClaveHija.addValueEventListener(valueEventListener);
 
-        //listaUsers.add(new User("user1","file:///storage/emulated/0/Android/data/com.example.loginregister/files/DCIM/IMG_20230305_175036506.jpg",1,2));
         listAdapter = new ListAdapter(listaUsers, container.getContext());
         RecyclerView recyclerView = root.findViewById(R.id.listUsersRanks);
         recyclerView.setHasFixedSize(true);
@@ -88,7 +88,12 @@ public class fragmentRank extends Fragment {
 
             listaUsers.clear();
             if(dataSnapshot.exists()){
+                List<DataSnapshot> lista = new ArrayList<>();
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    lista.add(snapshot);
+                }
+                Collections.reverse(lista);
+                for (DataSnapshot snapshot: lista){
                     Integer rank = Integer.parseInt(""+snapshot.child("rank").getValue());
                     String username = ""+snapshot.child("username").getValue();
                     Float points = Float.parseFloat(""+snapshot.child("points").getValue());
@@ -96,6 +101,8 @@ public class fragmentRank extends Fragment {
                     User user = new User(username,photoString,points,rank);
                     listaUsers.add(user);
                 }
+
+
             listAdapter.notifyDataSetChanged();
             }
 
