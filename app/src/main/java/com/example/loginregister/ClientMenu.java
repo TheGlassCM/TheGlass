@@ -9,17 +9,18 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.loginregister.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.loginregister.fragments.FragmentMap;
+import com.example.loginregister.fragments.fragmentOffers;
+import com.example.loginregister.fragments.fragmentRank;
+import com.example.loginregister.fragments.fragmentSettings;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class ClientMenu extends AppCompatActivity {
 
-    fragmentMap fragmentMap = new fragmentMap();
-    fragmentOffers fragmentOffers = new fragmentOffers();
-    fragmentRank fragmentRank = new fragmentRank();
-    fragmentSettings fragmentSettings = new fragmentSettings();
+    FragmentMap fragmentMap = new FragmentMap();
+    com.example.loginregister.fragments.fragmentOffers fragmentOffers = new fragmentOffers();
+    com.example.loginregister.fragments.fragmentRank fragmentRank = new fragmentRank();
+    com.example.loginregister.fragments.fragmentSettings fragmentSettings = new fragmentSettings();
 
     NavigationBarView nav;
     @Override

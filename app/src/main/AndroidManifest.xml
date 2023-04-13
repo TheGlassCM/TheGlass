@@ -5,7 +5,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,11 +19,16 @@
         android:theme="@style/Theme.LoginRegister"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_key"/>
+
         <activity
             android:name=".changePhoto"
             android:exported="false" />
         <activity
-            android:name=".loginBarActivity"
+            android:name=".services.login.loginBarActivity"
             android:exported="false" />
         <activity
             android:name=".registerAdvanced"
@@ -42,7 +49,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".loginActivity"
+            android:name=".services.login.loginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.fragments;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,6 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.loginregister.MainActivity;
+import com.example.loginregister.R;
+import com.example.loginregister.changePhoto;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -109,7 +112,7 @@ public class fragmentSettings extends Fragment {
         changePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),changePhoto.class));
+                startActivity(new Intent(getActivity(), com.example.loginregister.changePhoto.class));
                 succes.setBackgroundResource(R.drawable.succes_box);
 
             }
