@@ -28,7 +28,7 @@
             android:name=".changePhoto"
             android:exported="false" />
         <activity
-            android:name=".loginBarActivity"
+            android:name=".services.login.loginBarActivity"
             android:exported="false" />
         <activity
             android:name=".registerAdvanced"
@@ -49,7 +49,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".loginActivity"
+            android:name=".services.login.loginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

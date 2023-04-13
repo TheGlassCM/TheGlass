@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.loginregister.fragments.fragmentScanner;
+import com.example.loginregister.fragments.fragmentSettingsBar;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class BarMenu extends AppCompatActivity {
 
-    fragmentScanner fragmentScanner = new fragmentScanner();
+    com.example.loginregister.fragments.fragmentScanner fragmentScanner = new fragmentScanner();
     fragmentSettingsBar fragmentSettings = new fragmentSettingsBar();
 
     NavigationBarView nav;

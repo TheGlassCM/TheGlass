@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 
 import android.content.Intent;
 
+import com.example.loginregister.MainActivity;
+import com.example.loginregister.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class fragmentSettingsBar extends Fragment {

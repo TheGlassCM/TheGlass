@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.models;
 
 import android.net.Uri;
 

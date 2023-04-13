@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.services.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,38 +8,39 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.loginregister.BarMenu;
+import com.example.loginregister.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-
-
-public class loginActivity extends AppCompatActivity {
+public class loginBarActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
     private EditText emailEditText;
     private EditText passwordEditText;
-
     private TextView error;
-    private ProgressBar progressBar;
+
+    private Boolean res = false;
+
+    private DatabaseReference BASE_DE_DATOS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_bar);
 
-        emailEditText = findViewById(R.id.emailLoginEditText);
-        passwordEditText = findViewById(R.id.passwordLoginEditText);
-        error = findViewById(R.id.error);
-        progressBar = findViewById(R.id.progressBarLogin);
+        emailEditText = findViewById(R.id.emailLoginBarEditText);
+        passwordEditText = findViewById(R.id.passwordLoginBarEditText);
+        error = findViewById(R.id.errorBar);
 
+        BASE_DE_DATOS = FirebaseDatabase.getInstance().getReference("Bar");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,8 +59,21 @@ public class loginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Usuario:", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(loginActivity.this, ClientMenu.class));
-                            finish();
+
+                            res = user.getEmail().contains("@theglass.com")?true:false;
+                            Log.d("Es bar?",res.toString());
+                            if(res){
+                                startActivity(new Intent(loginBarActivity.this, BarMenu.class));
+                                finish();
+                            }else {
+                                emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+                                passwordEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
+                                error.setText(R.string.loginBarClient);
+                                error.setVisibility(View.VISIBLE);
+                                FirebaseAuth.getInstance().signOut();
+                                res = false;
+                            }
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Usuario:", "signInWithEmail:failure", task.getException());
@@ -76,9 +90,7 @@ public class loginActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
         if(!email.isEmpty()&&!password.isEmpty()){
-            progressBar.setVisibility(View.VISIBLE);
             signInWithEmailAndPassword(email,password);
-            progressBar.setVisibility(View.INVISIBLE);
         }else{
             emailEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
             passwordEditText.setBackgroundResource(R.drawable.rounded_error_edittext);
@@ -87,10 +99,5 @@ public class loginActivity extends AppCompatActivity {
         }
 
 
-    }
-
-    public void login(View view){
-        Intent switchLoginPage = new Intent(this, MainActivity.class);
-        startActivity(switchLoginPage);
     }
 }
