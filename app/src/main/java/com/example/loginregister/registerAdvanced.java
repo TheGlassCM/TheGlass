@@ -84,6 +84,8 @@ public class registerAdvanced extends AppCompatActivity {
                     text.setVisibility(View.VISIBLE);
                 }else{
                     progressBar.setVisibility(View.VISIBLE);
+                    Log.d("Uri String",uri_firebase.toString());
+                    Log.d("Username string", username.getText().toString());
                     User user = new User(username.getText().toString(),uri_firebase.toString(),0F,0);
                     myRef = database.getReference();
                     myRef.child("Users").child(userAuth.getUid()).setValue(user);
@@ -145,21 +147,6 @@ public class registerAdvanced extends AppCompatActivity {
 
     }
 
-
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        FirebaseUser userDel = FirebaseAuth.getInstance().getCurrentUser();
-        userDel.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Log.d("DEL USER","Usuario eliminado");
-                }
-            }
-        });
-    }
 
     @Override
     protected void onDestroy() {
